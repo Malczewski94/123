@@ -1,0 +1,27 @@
+.cart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-direction: column;
+    margin: 1rem;
+    text-align: center;
+    background-color: #f5cb5b;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.footercart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #325886;
+    border-radius: .5rem;
+    border: hidden;
+    padding: .5rem 1rem .5rem 1rem;
+}
+
+.frontpage{
+    width: 100%;
+    height: 15rem;
+}
