@@ -1,0 +1,15 @@
+.cartwidget{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5cb5b;
+    border-radius: 1rem;
+    height: 3rem;
+    width: 4rem;
+}
+
+.img{
+    width: 2rem;
+    height: 2rem;
+}
