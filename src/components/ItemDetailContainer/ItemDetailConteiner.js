@@ -31,7 +31,7 @@ const ItemDetailContainer = () => {
     }, [itemId])
     return(
         <div>
-            <ItemDetail {...product} />
+            <ItemDetail {...product} loading={loading}/>
         </div>
     )
 }

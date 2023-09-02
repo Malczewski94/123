@@ -1,19 +1,22 @@
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
+import './CartItem.css'
 
 
-function CartItem({id, price, img, title, quantity, category}) {
+function CartItem({id, price, img, name, quantity, category}) {
     const {removeItem} = useContext(CartContext)
+    let subtotal = price * quantity
 
     return (
-        <div>
-            <img src={img} />
-
+        <div className="cart_item">
+            <div>
+                <img className="img_cart" src={img}  alt="productos"/>
+            </div>
             <div>
                 <div>
                     <small>Titulo</small>
                     <div>
-                        <h4>{category} {title}</h4>
+                        <h4>{category} {name}</h4>
                     </div>
                 </div>
                 <div>
@@ -25,7 +28,7 @@ function CartItem({id, price, img, title, quantity, category}) {
                 <div>
                     <small>Subtotal</small>
                     <div>
-                        <h4>$ {price * quantity}</h4>
+                        <h4>$ {subtotal}</h4>
                     </div>
                 </div>
                 <div>

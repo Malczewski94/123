@@ -1,0 +1,8 @@
+.cart_item{
+    display: flex;
+    flex-direction: column;
+}
+
+.img_cart{
+    object-fit: contain;
+}

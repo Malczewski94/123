@@ -2,14 +2,15 @@ import { useState } from 'react';
 import db from '../../services/firebase/firebaseConfig';
 import CheckoutForm from '../CheckoutForm/CheckoutForm';
 import { useContext } from 'react';
-import { Timestamp, WriteBatch, addDoc, collection, documentId, query, where } from 'firebase/firestore';
+import {CartContext} from '../../context/CartContext';
+import { Timestamp, writeBatch, addDoc, collection, documentId, query, where, getDocs } from 'firebase/firestore';
 
 
 const Checkout = () => {
     const [loading, setLoading] = useState(false)
     const [orderId, setOrderId] = useState('')
 
-    const { cart, total, clearCart } = useContext(CartContext)
+    const { cart, totalPrice, clearCart } = useContext(CartContext)
 
     const createOrder = async ({name, phone, email}) => {
         setLoading(true)
@@ -20,21 +21,20 @@ const Checkout = () => {
                     name, phone, email
                 },
                 items: cart,
-                total: total,
+                total: totalPrice(),
                 date: Timestamp.fromDate(new Date())
             }
 
-            const batch = WriteBatch(db)
+            const batch = writeBatch(db)
             const outOfStock = []
             const ids = cart.map(prod => prod.id)
             const productsRef = collection(db, 'products')
-            const productsAddedFromFirestore = await getDocs(query(productsRef, where(documentId(), 'in',)))
+            const productsAddedFromFirestore = await getDocs(query(productsRef, where(documentId(), 'in', ids)))
             const { docs } = productsAddedFromFirestore
 
             docs.forEach(doc => {
                 const dataDoc = doc.data()
                 const stockDb = dataDoc.stock
-
                 const productsAddedToCart = cart.find(prod => prod.id === doc.id)
                 const prodQuantity = productsAddedToCart?.quantity
 
@@ -68,7 +68,7 @@ const Checkout = () => {
     }
 
     if(orderId) {
-        return <h1>El id de su orden es: </h1>
+        return <h1>El id de su orden es: {orderId}</h1>
     }
 
     return (
