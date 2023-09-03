@@ -1,8 +1,13 @@
 .cart_item{
     display: flex;
     flex-direction: column;
+    text-align: center;
+    width: 100%;
+    align-items: center;
 }
 
-.img_cart{
-    object-fit: contain;
+.cart_detail{
+    width: 10rem;
+    background-color: #f5cb5b;
+    border-radius: 6px;
 }

@@ -9,10 +9,7 @@ function CartItem({id, price, img, name, quantity, category}) {
 
     return (
         <div className="cart_item">
-            <div>
-                <img className="img_cart" src={img}  alt="productos"/>
-            </div>
-            <div>
+            <div className="cart_detail">
                 <div>
                     <small>Titulo</small>
                     <div>

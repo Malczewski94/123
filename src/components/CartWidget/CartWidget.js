@@ -8,9 +8,15 @@ const CartWidget = () => {
 const {totalQuantity} = useContext(CartContext)
 
     return (
-        <Link to='./cart' className='cartwidget' style={{ display: totalQuantity > 0 ? 'block' : 'none'}} >
-            <img className='img' src={cart} alt='carrito-de-compras'/>
-            {totalQuantity}
+        <Link to='./cart' style={{ display: totalQuantity > 0 ? 'inline' : 'none'}} >
+            <div className='cartwidget'>
+                <div>
+                    <img className='img' src={cart} alt='carrito-de-compras'/>
+                </div>
+                <div>
+                    {totalQuantity}
+                </div>
+            </div>
         </Link>
     );
 }

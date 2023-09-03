@@ -1,0 +1,39 @@
+.footer{
+    background-color: rgb(25, 25, 25);
+}
+
+.logo{
+    object-fit: contain;
+}
+
+.title_footer{
+    border-bottom: solid 2px rgb(93, 93, 93);
+    color: white;
+}
+
+.footer_text{
+    color: rgb(78, 78, 78);
+}
+
+.footer_contain{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2rem 3rem 0 3rem;
+    padding-top: 1rem;
+}
+
+.footer_section{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 28%;
+}
+
+.footer_section_text{
+    display: flex;
+    height: 8rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
